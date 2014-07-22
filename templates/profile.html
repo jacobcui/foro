@@ -1,0 +1,87 @@
+{% extends "basepage.html" %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content%}
+<div class="row">
+  <h4> Profile </h4>
+</div>
+
+<div class="row shadow">
+  <div class="row">
+    <div class="span2">Login Name</div>
+    <div class="span4"><input type=text value="{{ user.username }}"></div>
+  </div>
+  <div class="row">
+    <div class="span2">Password</div>
+    <div class="span3"><input type=password placeholder="Change password" value=""></div>
+    <div class="span3" ><input type=password placeholder="Retype password" value=""></div>
+  </div>
+  <div class="row">
+    <div class="span2">First Name</div>
+    <div class="span4"><input type=text value="{{ user.first_name }}"></div>
+  </div>
+
+  <div class="row">
+    <div class="span2">Last Name</div>
+    <div class="span4"><input type=text value="{{ user.last_name }}"></div>
+  </div>
+
+  <div class="row">
+    <div class="span2">Email</div>
+    <div class="span4"><input type=text value="{{ user.email }}"></div>
+  </div>
+
+  <div class="row">
+    <div class="span2"></div>
+    <div class="span4">
+      <a href="#" name=update_profile id=update_profile class="btn btn-success">Update</a>
+    </div>
+  </div>
+</div>
+
+<p>&nbsp;</p>
+<div class="row ">
+  <h4> Applications </h4>
+</div>
+
+<div class="row shadow">
+  <div class="row">
+    <div class="span6">
+      <h4> {{ appname_excel }}  </h4>
+      <h4> {{ userplan_excel.plan.description }} </h4><p></p>
+    </div>
+    <div class="span6">
+      {% if userplan_excel.plan.planid != "commercial_partner" %}
+      <a href="/apps/get/excel" class="btn btn-success"><i class="icon-ok"></i> Upgrade </a>
+      <a href="/apps/get/excel" id='start' class="btn btn-success">Check {{ appname_excel }} plans</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span2">
+      Site name/IP<br>
+      <textarea rows="4" cols="20">{{ userplan_excel.site }}</textarea>
+    </div>
+    <div class="span1"></div>
+    <div class="span2">
+      Application Key<br>
+      <input type=text name={{ userplan_excel.planid }} readonly value="{{ userplan_excel.appkey }}">
+    </div>
+    <div class="span1"></div>
+    <div class="span2">
+      <div class="span4">
+	<a href="#" name=update_excel id=update_excel class="btn btn-success">Update</a>
+      </div>      
+    </div>
+  </div><!-- end of row-->
+</div>
+{% endblock%}
+
+{% block othercontent %}
+
+{% endblock%}
+
+
+
+

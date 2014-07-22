@@ -1,0 +1,149 @@
+
+{% extends "basepage.html" %}
+{% block title %} Start using {% endblock %}
+
+{% block content%}
+<div class="row">&nbsp;</div>
+<div class="row">&nbsp;</div>
+<div class="container shadow">
+  <h3>Text to Excel</h3>
+  <pre>
+    This online service is implemented for easily calling through Javascript. No SOAP/WSDL skill required. 
+    You can either pass comma seperated text or JSON formated text to the soap call. If you are using jQUery
+    to load AJAX driven pages, it's even easier!
+  </pre>
+
+
+  <h4>Comma seprated</h4>
+  Create new sheet using [] pair then put the sheet name inside them. Then each line after [...] represents
+  a row in the spreadsheet, simply using ',' to seperate each cells.  
+
+  <pre>
+    [Sheet B]
+    Company Name,Last Sale,+ or -,Quote Buy,Quote Sell
+    Bank of Qld,9.57,-1.0,9.55,9.57
+    Bendigo & Adelaide Bk,10.29,3.0,10.25,10.29
+    BlueScope Steel,4.9,1.0,4.89,4.9
+    Boral,4.97,3.0,4.96,4.97
+    Brambles,8.4,7.0,8.4,8.41
+    Brickworks,13.0,-6.0,13.0,13.05
+    [Sheet A]
+    ...
+  </pre>
+
+  <h4>JSON</h4>
+  Create new sheet using sheet name as the root parameter then takes an array of all rows.
+  Each row itself is an array with comma seperated cell values.
+
+  <pre>
+    {
+    "Sheet A": [
+    [
+    "Company Name", 
+    "Last Sale", 
+    "+ or - ", 
+    "Quote Buy", 
+    "Quote Sell"
+    ], 
+    [
+    "Adelaide Brighton", 
+    3.34, 
+    -6.0, 
+    3.33, 
+    3.34
+    ], 
+    [
+    "AGL Energy", 
+    15.56, 
+    21.0, 
+    15.51, 
+    15.56
+    ], 
+    ...
+    ], 
+    "Sheet B": [
+    [
+    "Company Name", 
+    "Last Sale", 
+    "+ or -", 
+    "Quote Buy", 
+    "Quote Sell"
+    ], 
+    [
+    "Bank of Qld", 
+    9.57, 
+    -1.0, 
+    9.55, 
+    9.57
+    ], 
+    ...
+    ]
+    }
+  </pre>
+
+
+  <h4>Make a request</h4>
+  After purchasing, an APPID will be assigned to you, please login and use this APPID to request the service. 
+  Also you need to pair this APPID with your application server name or IP address.
+
+  A free APPID is asigned to developer lover plan. Simply sing up and select 'Developer' plan. After your email address beeing verified, we'll send you an APPID, it's free but have 50 lines limitation per document you create.
+
+  Here is a javascript library to be included in your page.
+  <pre>
+    <<span>script type="text/javascript" src="//www.foro.com.au/resource/lib/report/jquery-text2excel.js"</span>><<span>/script</span>>
+  </pre>
+
+  Then the actually service calling development is very easy to approach. You only need to feed the JSONP method with:
+
+  <pre>
+    var appkey = 'APPDEMO_EXCEL';
+    // calling the service
+    sendingRequest(text, 'text', appkey, parseResponse)
+  </pre>
+
+  If your data is in JSON format, chage the 2nd parameter in function sendingRequest call to 'json'.
+
+
+  <h4>Handle the response</h4>
+  Function parseResponse is predefined by you. When foro sends file link back to your website, the function parseResponse is used to parse these
+  data and then get them displayed on your website properly.
+
+  <pre>
+    function parseResponse(data){
+    // data is a JSON object
+    jobj=data
+    if (jobj.statuscode != 0){
+    $("#filelink").html(
+    "Creation failed: "+ jobj.statuscode +":" + jobj.errormessage + ""
+    );
+    }else{
+    $("#filelink").html(
+    "File: <a href=" + $host +  jobj.link + ">"+ jobj.filename +"</a>"
+    );
+    }
+    .....
+    }
+  </pre>
+
+  A few properties of the response JSON objects are:
+  <pre>
+    <B>statuscode</B>:  Representing the file creation status. 0 is for good.
+    <B>errormessage</B>:   If the 'statuscode' is not 0, this will give some indication.
+    <B>link</B>: If 'statuscode' is 0, then here is the link for the file created.
+    <B>filename</B>: If 'statuscode' is 0, here is the file name.
+  </pre>
+
+  <h4>Security</h4>
+  <pre>
+    As you can see the text2excel's javascript library can be either included via HTTP or via HTTPS. All data transformation is encripted using HTTPS.
+
+    Also, all generated files will be DELETED after a certern period (We are software provider, not storage vender) while will be between 24 hours and 1 week. We are not intested in your created files and if you have any concerns about security issues please check the <a href=/privacy>privacy</a> page or contact us at <a href="mailto:{{support_email}}">{{support_email}}</a>
+  </pre>
+</div>
+<div class="push"></div>
+{% endblock%}
+
+{% block othercontent %}
+
+
+{% endblock %}

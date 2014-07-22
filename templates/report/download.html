@@ -1,0 +1,23 @@
+{% extends "basepage.html" %}
+{% block title %} Report : Download {% endblock %}
+
+{% block content%} 
+
+  <div class="row">
+    <div class="span9">
+       <label for="filelink">Report for download <i class="icon-file"></i></label>
+	<div class="row">
+	  <div class="span9">
+	    <a href="#" id="filelink" name="filelink">  {{ filelink }} </a>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="span9"> 
+	    <input type="button" id="download" class="btn" value="Download"></input>
+	  </div>
+	</div>
+      </form>
+    </div>
+  </div>
+  
+{% endblock%}

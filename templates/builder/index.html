@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Applicants</title>
+    <link rel="stylesheet" href="{{ STATIC_URL}}lib/jquery/themes/base/jquery.ui.all.css" />
+    <script src="{{ STATIC_URL }}lib/jquery/jquery-1.9.1.min.js"></script>
+    <script src="{{ STATIC_URL }}lib/jquery/ui/jquery-ui.js"></script>
+    <script src="{{ STATIC_URL }}lib/builder/index.js"></script>
+
+    <link rel="stylesheet" href="{{ STATIC_URL}}css/style.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL}}css/builder/style.css" />
+  </head>
+
+  <div id="toolbox" class="ui-widget-content">
+    <div id="itemlabel" class="field_item_wrap draggable">
+      <div class="drag_handle"></div>
+      <div class="field_item">
+	<span> Label </span>
+      </div>
+    </div>
+
+    <div id="itemtextinput" class="field_item_wrap draggable">
+      <div class="drag_handle"></div>
+      <div class="field_item">
+	<input type=text size=15 value='Text Input'> </input>
+      </div>
+    </div>
+
+    
+  </div>
+
+  <div id="droppable" class="">
+    <p>accept: '#draggable'</p>
+  </div>
+
+</html>

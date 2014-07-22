@@ -1,0 +1,40 @@
+.field_item_wrap {
+    background-color: #e1e1e1;
+    height: 25px;
+    line-height: 25px;
+    margin-bottom: 1px;
+    color: #545454;
+    text-shadow: 0 1px 1px #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+
+.draggable {
+    position: relative;
+    background-color: #e1e1e1;
+    width: 190px; 
+    height: 25px; 
+    padding:2.5 em;
+    color: #545454;
+    text-shadow: 1px 1px 1px #FFF;
+    /*      border: 1px solid #393939;*/
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+.field_item {
+    margin-left: 42px;
+}
+.drag_handle {
+    position: absolute;
+    left: 10px;
+    top: 7px;
+    width: 15px;
+    height: 12px;
+    background: transparent url('http://static.websimages.com/static/projects/finch/images/dragger_handle.png') repeat-y 0 0;
+    cursor: move;
+}
+
+#droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }

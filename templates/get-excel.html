@@ -1,0 +1,85 @@
+{% extends "basepage.html" %}
+{% block title %} Get a plan {% endblock %}
+
+{% block content%} 
+
+<div class="row shadow">
+  <div class="span9">
+    <table class="table" style="width:80%">
+      <thead>
+        <tr class="centered">
+	  <th>&nbsp;</th>
+          <th class="type"><h4>Casual</h4></th>
+	  <th class="type"><h4>Buddget</h4></th>
+	  <th class="type"><h3>Unlimited</h3></th>
+	</tr>
+      </thead>
+      <tbody class="body">
+	<tr>
+	  <td class="tier">Yearly saving plan (2yrs)</td>
+	  <td class="price">${{ plan.personal_year2 }} /month
+	    <br><button class='btn btnselect' id=personal_year2 value=Select>Select</button>
+	  </td>
+	  <td class="price">${{ plan.budget_year2}} /month
+	    <br><button class='btn btnselect' id=budget_year2 value=Select>Select</button>
+	  </td>
+	  <td class="price">${{ plan.ultimate_year2 }} /month 
+	    <br><button class='btn btnselect' id=ultimate_year2 value=Select>Select</button>
+	  </td>
+	</tr>
+	<tr>
+	  <td class="tier">Yearly saving plan (1yrs)
+	    <br>
+	  </td>
+	  <td class="price">${{ plan.personal_year1 }} /month 
+	    <br><button class='btn btnselect' id=personal_year1 value=Select>Select</button>
+	  </td>
+	  <td class="price">${{ plan.budget_year1}} /month 
+	    <br><button class='btn btnselect' id=budget_year1 value=Select>Select</button>
+	  </td>
+	  <td class="price">${{ plan.ultimate_year1}} /month
+	    <br><button class='btn btnselect' id=ultimate_year1 value=Select>Select</button>
+	  </td>
+	</tr>
+	<tr>
+	  <td class="tier">Monthly plan</td>
+	  <td class="price">${{ plan.personal_month }} /month 
+	    <br><button class='btn btnselect' id=personal_month value=Select>Select</button>
+	  </td>
+	  <td class="price">${{ plan.budget_month }} /month 
+	    <br><button class='btn btnselect' id=budget_month value=Select>Select</button>
+	  </td>
+	  <td class="price">${{ plan.ultimate_month }} /month 
+	    <br><button class='btn btnselect' id=ultimate_month value=Select>Select</button>
+	  </td>
+	</tr>
+	<tr>
+	  <td class="tier">Bandwidth</td>
+	  <td class="price">20 MBytes /month </td><td class="price">200 MBytes /month </td><td class="price">Unlimited </td>
+	</tr>
+	<tr>
+	  <td class="tier">Storage</td>
+	  <td class="price">40 MBytes /month </td><td class="price">200 MBytes /month </td><td class="price"> 10G </td>
+	</tr>
+	<tr>
+	  <td class="tier">Maxmium single file size</td>
+	  <td class="price">20K </td><td class="price">200K </td><td class="price"> 200M </td>
+	</tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>&nbsp;</p>
+<div id="plan_details_container" class="row">
+  <div class="span9" id="plan_details">
+  </div>
+</div>
+
+{% endblock%}
+
+{% block othercontent %}
+{% endblock%}
+
+
+
+

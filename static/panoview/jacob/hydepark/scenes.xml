@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Scenes>
+  <FloorMap>
+    <Image>main_full/main.png</Image>
+  </FloorMap>
+  <Camera>
+    <Image>_shared/dot.png</Image>
+  </Camera>
+  <Radar>
+    <Image>_shared/arrow.png</Image>
+  </Radar>
+  <Coords>
+    <Amount>1</Amount>
+    <Coord>
+      <Index>0</Index>
+      <Lat>100</Lat>
+      <Lon>100</Lon>
+    </Coord>
+  </Coords>
+
+  <Scene>
+    <Index>0</Index>
+    <Name>main_full</Name>
+    <SceneDetail>
+      <Width>window.innerWidth</Width>
+      <Height>window.innerHeight * 0.6</Height>
+      <Textures>
+	<Texture>
+	  <Position>Up</Position>
+	  <Image>main_full/hydepark_u.jpg</Image>
+	</Texture>
+	<Texture>
+	  <Position>Down</Position>
+	  <Image>main_full/hydepark_d.jpg</Image>
+	</Texture>
+	<Texture>
+	  <Position>Left</Position>
+	  <Image>main_full/hydepark_l.jpg</Image>
+	</Texture>
+	<Texture>
+	  <Position>Right</Position>
+	  <Image>main_full/hydepark_r.jpg</Image>
+	</Texture>
+	<Texture>
+	  <Position>Back</Position>
+	  <Image>main_full/hydepark_b.jpg</Image>
+	</Texture>
+	<Texture>
+	  <Position>Front</Position>
+	  <Image>main_full/hydepark_f.jpg</Image>
+	</Texture>
+      </Textures>
+    </SceneDetail>
+  </Scene>
+</Scenes>

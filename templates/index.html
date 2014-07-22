@@ -1,0 +1,53 @@
+{% extends "basepage.html" %}
+{% block title %} {{ sitename }}, Panorama Photos, Virtual Tour, Virtual Inspection {% endblock %}
+
+{% block content%} 
+<div class="pv-scene" id="pv_scene_tmp">
+  <div id="pv_canvas_panoview_main" z-index=1></div>
+
+  <div id="pv_floorplan_nav" style="position: absolute; left; 0px; top: 0px; width: 30; height: 30; z-index:4; visibility:hidden">
+    <a href=# id="floorplan-nav-btn">>></a>
+  </div>
+
+  <div id="pv_floor_panoview_main" style="position: absolute; left; 0px; top: 20px; width: 20%; height: 300; z-index:2; visibility:hidden">
+    <p> Floor Plan </p>
+    
+    <img id="pv_floor_image" src="#" alt="Floor Plan">
+  </div>
+
+  <div class="toolbox" id="toolbox" style="width: 260px; height: 60px; z-index: 0; text-align: left; position: absolute; right: 1px; bottom: 5px;">
+    <div style="position: absolute; left: 0px; top: 0px; width: 90px; height: 90px; overflow: hidden;"><div style="width: 90px; height: 90px; overflow: hidden; visibility: hidden;">
+	<img src="//maps.gstatic.com/mapfiles/compass_spr2.png" style="position: absolute; left: 0px; top: 0px; border: 0px; padding: 0px; margin: 0px;"></div>
+    </div>
+
+    <div style="position: absolute; left: 0px; top: 0px; width: 90px; height: 90px;">
+      <div style="position: absolute; left: 16px; top: 17px; width: 59px; height: 62px; overflow: hidden;">
+	<img src="//maps.gstatic.com/mapfiles/mapcontrols3d7.png" style="position: absolute; left: 0px; top: 0px; border: 0px; padding: 0px; margin: 0px;">
+      </div>
+    </div>
+
+    <div id="compass" style="position: absolute; left: 0px; top: 0px; width: 90px; height: 90px;">
+      <div title="Up" id="pan_up" style="position: absolute; left: 36px; top: 17px; width: 18px; height: 18px; cursor: pointer;"></div>
+      <div title="Left" id="pan_lt" style="position: absolute; left: 16px; top: 37px; width: 18px; height: 18px; cursor: pointer;"></div>
+      <div title="Right" id="pan_rt" style="position: absolute; left: 56px; top: 37px; width: 18px; height: 18px; cursor: pointer;"></div>
+      <div title="Down" id="pan_down" style="position: absolute; left: 36px; top: 57px; width: 18px; height: 18px; cursor: pointer;"></div>
+      <div title="Return to the last result" id="center_result" style="position: absolute; left: 36px; top: 37px; width: 18px; height: 18px; cursor: pointer;"></div>
+    </div>
+
+    
+    <div style="position: absolute; left: 80px; top: 35px; width: 22px; height: 22px; overflow: hidden; z-index: 10001;">
+      <div style="width: 22px; height: 22px; overflow: hidden; position: absolute;">
+	<img src="//maps.gstatic.com/mapfiles/mapcontrols3d7.png" style="position: absolute; left: -18px; top: -399px; border: 0px; padding: 0px; margin: 0px;"></div>
+      <div title="Zoom In" id="zoom_in" style="position: absolute; left: -2px; top: 0px; width: 22px; height: 22px; cursor: pointer;"></div>
+    </div>
+
+    <div style="position: absolute; left: 100px; top: 37px; width: 22px; height: 22px; text-align: left; z-index: 10003;">
+      <div style="width: 22px; height: 22px; overflow: hidden; position: absolute;">
+	<img src="//maps.gstatic.com/mapfiles/mapcontrols3d7.png" style="position: absolute; left: -18px; top: -361px; border: 0px; padding: 0px; margin: 0px;">
+      </div>
+      <div title="Zoom Out" id="zoom_out" style="position: absolute; left: 2px; top: -4px; width: 22px; height: 22px; cursor: pointer;"></div>
+    </div>
+
+</div>
+
+{% endblock%}

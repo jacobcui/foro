@@ -1,0 +1,43 @@
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="/">{{sitename}}</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="{{ home_active }}">
+            <a href="/">Home</a>
+          </li>
+          <li class="{{ getstartted_active }}">
+            <a href="/get-startted">Documents</a>
+          </li>
+	  {% if user.is_active %}
+          <!-- li class="{{ profile_active }}">
+            <a href="/apps">Applications</a>
+          </li -->
+
+          <li class="{{ profile_active }}">
+            <a href="/profile">Profile</a>
+          </li>
+	  
+          <li class="{{ logout_active }}">
+            <a href="/logout">Logout</a>
+          </li>
+
+	  {% else %}
+          <li class="{{ login_active }}">
+            <a href="/login">Login</a>
+          </li>
+	  
+	  {% endif %}
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

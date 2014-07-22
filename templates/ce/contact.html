@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title> List </title>
+
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="{{ STATIC_URL}}lib/jquery/themes/base/jquery.ui.all.css" />
+    <script src="{{ STATIC_URL }}lib/jquery/jquery-1.9.0.js"></script>
+    <script src="{{ STATIC_URL }}lib/jquery/ui/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="{{ STATIC_URL}}lib/bootstrap/css/bootstrap.min.css" /> 
+    <link rel="stylesheet" href="{{ STATIC_URL}}css/style.css" />
+    <script type="text/javascript" src="{{ STATIC_URL}}lib/bootstrap/js/bootstrap.min.js" />
+    <script type="text/javascript"
+	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSi_cIXVfK0VRvGpV6Loufr5EtxhaFxKM&sensor=false">
+    </script>    
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>   
+    
+
+    <script type="text/javascript" src="{{ STATIC_URL }}lib/ce/index.js"></script>
+
+    <link rel="stylesheet" href="{{ STATIC_URL}}css/ce/style.css" />
+    </head>
+
+  <body>
+    <div class="container-fluid" id="menu">
+      <div class="row-fluid">
+	<div class="span12">
+
+	  <form method="post" action="/ce/contact/">
+	    {% csrf_token %}
+	    {{ form }}
+	    <input type=submit value=Submit></input>
+	  </form>
+	</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,284 @@
+
+{% extends "basepage.html" %}
+{% block title %} Start using {% endblock %}
+
+{% block content%} 
+
+{% endblock%}
+
+{% block othercontent %}
+
+
+<div id="dialog-form" title="Create new user">
+  <p class="validateTips">All form fields are required.</p>
+  {% if form.errors %}
+  <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+    <fieldset>    
+      {% csrf_token %}
+      <table>
+	<tr>
+	  <td>{{ form.username.label_tag }}</td>
+	  <td>{{ form.username }}</td>
+	</tr>
+	<tr>
+	  <td>{{ form.password.label_tag }}</td>
+	  <td>{{ form.password }}</td>
+	</tr>
+      </table>
+      
+      <input type="submit" value="login" />
+      <input type="hidden" name="next" value="{{ next }}" />
+    </fieldset>
+  </form>
+</div>
+
+<!-- Docs nav
+     ================================================== -->
+<div class="row">
+  <div class="span3 bs-docs-sidebar">
+    <ul class="nav nav-list bs-docs-sidenav">
+      <li><a href="#download-bootstrap"><i class="icon-chevron-right"></i> {{ appname_excel }} </a></li>
+    </ul>
+  </div>
+  <div class="span9">
+
+
+
+    <!-- Excel
+         ================================================== -->
+    <section id="download-bootstrap">
+      <div class="page-header">
+        <h1>1. {{ appname_excel }}</h1>
+      </div>
+      <p class="lead">To keep things easier, both JSON and plain text can be used to call the {{ appname_excel }} service.</p>
+
+      <div class="row-fluid">
+        <div class="span6">
+          <h2>Demo</h2>
+          <p><strong>Fastest way to get started:</strong> get the code running first. </p>
+          <p><a class="btn btn-large btn-primary" href="/report/test" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download compiled']);">Online {{ appname_excel }} creater</a></p>
+        </div>
+        <div class="span6">
+          <h2>Start using {{ appname_excel }}</h2>
+          <p>Get the {{ appname_excel }} running for your business. Start now.</p>
+	  {% if user.is_active %}
+	    {% if has_excel %}
+            <p><a class="btn btn-large" id='start' href="/apps" > Goto Applications </a></p>
+	    {% else %}
+	    <p><a class="btn btn-large" id='start' href="/apps/get/excel" > Get {{ appname_excel }} </a></p>
+	    {% endif %}
+	  {% else %}
+          <p><a class="btn btn-large" id='start' href="/login" > Start </a></p>	  
+	  {% endif %}
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- File structure
+         ================================================== -->
+    <section id="file-structure">
+      <div class="page-header">
+        <h1>2. File structure</h1>
+      </div>
+      <p class="lead">Within the download you'll find the following file structure and contents, logically grouping common assets and providing both compiled and minified variations.</p>
+      <p>Once downloaded, unzip the compressed folder to see the structure of (the compiled) foro!. You'll see something like this:</p>
+      <pre class="prettyprint">
+	bootstrap/
+	├── css/
+	│   ├── bootstrap.css
+	│   ├── bootstrap.min.css
+	├── js/
+	│   ├── bootstrap.js
+	│   ├── bootstrap.min.js
+	└── img/
+	├── glyphicons-halflings.png
+	└── glyphicons-halflings-white.png
+      </pre>
+      <p>This is the most basic form of foro!: compiled files for quick drop-in usage in nearly any web project. We provide compiled CSS and JS (<code>bootstrap.*</code>), as well as compiled and minified CSS and JS (<code>bootstrap.min.*</code>). The image files are compressed using <a href="http://imageoptim.com/">ImageOptim</a>, a Mac app for compressing PNGs.</p>
+      <p>Please note that all JavaScript plugins require jQuery to be included.</p>
+    </section>
+
+
+
+    <!-- Contents
+         ================================================== -->
+    <section id="contents">
+      <div class="page-header">
+        <h1>3. What's included</h1>
+      </div>
+      <p class="lead">foro! comes equipped with HTML, CSS, and JS for all sorts of things, but they can be summarized with a handful of categories visible at the top of the <a href="http://getbootstrap.com">foro! documentation</a>.</p>
+
+      <h2>Docs sections</h2>
+      <h4><a href="http://twitter.github.com/bootstrap/scaffolding.html">Scaffolding</a></h4>
+      <p>Global styles for the body to reset type and background, link styles, grid system, and two simple layouts.</p>
+      <h4><a href="http://twitter.github.com/bootstrap/base-css.html">Base CSS</a></h4>
+      <p>Styles for common HTML elements like typography, code, tables, forms, and buttons. Also includes <a href="http://glyphicons.com">Glyphicons</a>, a great little icon set.</p>
+      <h4><a href="http://twitter.github.com/bootstrap/components.html">Components</a></h4>
+      <p>Basic styles for common interface components like tabs and pills, navbar, alerts, page headers, and more.</p>
+      <h4><a href="http://twitter.github.com/bootstrap/javascript.html">JavaScript plugins</a></h4>
+      <p>Similar to Components, these JavaScript plugins are interactive components for things like tooltips, popovers, modals, and more.</p>
+
+      <h2>List of components</h2>
+      <p>Together, the <strong>Components</strong> and <strong>JavaScript plugins</strong> sections provide the following interface elements:</p>
+      <ul>
+        <li>Button groups</li>
+        <li>Button dropdowns</li>
+        <li>Navigational tabs, pills, and lists</li>
+        <li>Navbar</li>
+        <li>Labels</li>
+        <li>Badges</li>
+        <li>Page headers and hero unit</li>
+        <li>Thumbnails</li>
+        <li>Alerts</li>
+        <li>Progress bars</li>
+        <li>Modals</li>
+        <li>Dropdowns</li>
+        <li>Tooltips</li>
+        <li>Popovers</li>
+        <li>Accordion</li>
+        <li>Carousel</li>
+        <li>Typeahead</li>
+      </ul>
+      <p>In future guides, we may walk through these components individually in more detail. Until then, look for each of these in the documentation for information on how to utilize and customize them.</p>
+    </section>
+
+
+
+    <!-- HTML template
+         ================================================== -->
+    <section id="html-template">
+      <div class="page-header">
+        <h1>4. Basic HTML template</h1>
+      </div>
+      <p class="lead">With a brief intro into the contents out of the way, we can focus on putting foro! to use. To do that, we'll utilize a basic HTML template that includes everything we mentioned in the <a href="./getting-started.html#file-structure">File structure</a>.</p>
+      <p>Now, here's a look at a <strong>typical HTML file</strong>:</p>
+      <pre class="prettyprint linenums">
+	&lt;!DOCTYPE html&gt;
+	&lt;html&gt;
+	&lt;head&gt;
+	&lt;title&gt;foro! 101 Template&lt;/title&gt;
+	&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;h1&gt;Hello, world!&lt;/h1&gt;
+	&lt;script src="http://code.jquery.com/jquery.js"&gt;&lt;/script&gt;
+	&lt;/body&gt;
+	&lt;/html&gt;
+      </pre>
+      <p>To make this <strong>a foro!ped template</strong>, just include the appropriate CSS and JS files:</p>
+      <pre class="prettyprint linenums">
+	&lt;!DOCTYPE html&gt;
+	&lt;html&gt;
+	&lt;head&gt;
+	&lt;title&gt;foro! 101 Template&lt;/title&gt;
+	&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+	&lt;!-- foro! --&gt;
+	&lt;link href="css/bootstrap.min.css" rel="stylesheet" media="screen"&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;h1&gt;Hello, world!&lt;/h1&gt;
+	&lt;script src="http://code.jquery.com/jquery.js"&gt;&lt;/script&gt;
+	&lt;script src="js/bootstrap.min.js"&gt;&lt;/script&gt;
+	&lt;/body&gt;
+	&lt;/html&gt;
+      </pre>
+      <p><strong>And you're set!</strong> With those two files added, you can begin to develop any site or application with foro!.</p>
+    </section>
+
+
+
+    <!-- Examples
+         ================================================== -->
+    <section id="examples">
+      <div class="page-header">
+        <h1>5. Examples</h1>
+      </div>
+      <p class="lead">Move beyond the base template with a few example layouts. We encourage folks to iterate on these examples and not simply use them as an end result.</p>
+      <ul class="thumbnails bootstrap-examples">
+        <li class="span3">
+          <a class="thumbnail" href="examples/starter-template.html">
+            <img src="assets/img/examples/bootstrap-example-starter.png" alt="">
+          </a>
+          <h4>Starter template</h4>
+          <p>A barebones HTML document with all the foro! CSS and JavaScript included.</p>
+        </li>
+        <li class="span3">
+          <a class="thumbnail" href="examples/hero.html">
+            <img src="assets/img/examples/bootstrap-example-marketing.png" alt="">
+          </a>
+          <h4>Basic marketing site</h4>
+          <p>Featuring a hero unit for a primary message and three supporting elements.</p>
+        </li>
+        <li class="span3">
+          <a class="thumbnail" href="examples/fluid.html">
+            <img src="assets/img/examples/bootstrap-example-fluid.png" alt="">
+          </a>
+          <h4>Fluid layout</h4>
+          <p>Uses our new responsive, fluid grid system to create a seamless liquid layout.</p>
+        </li>
+
+        <li class="span3">
+          <a class="thumbnail" href="examples/marketing-narrow.html">
+            <img src="assets/img/examples/bootstrap-example-marketing-narrow.png" alt="">
+          </a>
+          <h4>Narrow marketing</h4>
+          <p>Slim, lightweight marketing template for small projects or teams.</p>
+        </li>
+        <li class="span3">
+          <a class="thumbnail" href="examples/justified-nav.html">
+            <img src="assets/img/examples/bootstrap-example-justified-nav.png" alt="">
+          </a>
+          <h4>Justified nav</h4>
+          <p>Marketing page with equal-width navigation links in a modified navbar.</p>
+        </li>
+        <li class="span3">
+          <a class="thumbnail" href="examples/signin.html">
+            <img src="assets/img/examples/bootstrap-example-signin.png" alt="">
+          </a>
+          <h4>Sign in</h4>
+          <p>Barebones sign in form with custom, larger form controls and a flexible layout.</p>
+        </li>
+
+        <li class="span3">
+          <a class="thumbnail" href="examples/sticky-footer.html">
+            <img src="assets/img/examples/bootstrap-example-sticky-footer.png" alt="">
+          </a>
+          <h4>Sticky footer</h4>
+          <p>Pin a fixed-height footer to the bottom of the user's viewport.</p>
+        </li>
+        <li class="span3">
+          <a class="thumbnail" href="examples/carousel.html">
+            <img src="assets/img/examples/bootstrap-example-carousel.png" alt="">
+          </a>
+          <h4>Carousel jumbotron</h4>
+          <p>A more interactive riff on the basic marketing site featuring a prominent carousel.</p>
+        </li>
+      </ul>
+    </section>
+
+
+
+
+    <!-- Next
+         ================================================== -->
+    <section id="what-next">
+      <div class="page-header">
+        <h1>What next?</h1>
+      </div>
+      <p class="lead">Head to the docs for information, examples, and code snippets, or take the next leap and customize foro! for any upcoming project.</p>
+      <a class="btn btn-large btn-primary" href="./scaffolding.html" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Next steps', 'Visit docs']);">Visit the foro! docs</a>
+      <a class="btn btn-large" href="./customize.html" style="margin-left: 5px;" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Next steps', 'Customize']);">Customize foro!</a>
+    </section>
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}

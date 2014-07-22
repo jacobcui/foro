@@ -1,0 +1,96 @@
+{% extends "basepage.html" %}
+{% block title %} {{ sitename }}, Cloud Broker, SaaS {% endblock %}
+
+{% block content%} 
+<div class="jumbotron masthead">
+  <div class="sitename-rows">
+    <h1> Cloud Brokerage and more </h1>
+    <p><p>
+      <h3>Adding more color to your business!</h3>
+      
+      <!-- a href="/about" class="btn btn-primary btn-large" onclick="">Learn more</a -->
+  </div>
+</div>
+<!--
+<div id="canvascontainer" class="canvascontainer color-pannel">
+    <canvas id="canvas" class="canvas"></canvas>
+    <div id="imgcontainer" class="imgcontainer">
+    </div>
+  </div>
+-->
+<div class="middle-bar">
+  <a class="middle-bar-item1" href="#saas-section">
+    SaaS
+  </a>
+  <a class="middle-bar-item2" href="#library-section">
+    Cloud Brokerage
+  </a>
+</div>
+
+<div class="main_body_container">
+  <div class="container">
+
+    <div class="row">&nbsp;</div>
+
+    <div class="row  introduce">
+      <div class="span11">
+	<font class='company_name_normal'>{{ sitename }}</font> provides all your development needs for expansion and enhancement of your web site. There are already plenty of front end web developers to 
+	help you beautify your web site, we won't bother this area. Our expertise is something in the back. For example, you want to add <a href="https://en.wikipedia.org/wiki/Ajax_(programming)">AJAX</a> call to your page to retrieve some data from within or even outside your website.  
+      </div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+
+    <div class="row">
+      <div class="span4">
+	<!--img class="marketing-img" src="/resource/image/cloud-computing-400x400.jpg"-->
+	More services, e.g, blog, portal, photo, email, facebook, twitter, login/logout, etc, will be added to your web site
+      </div>
+      <div class="span4">
+	Central management for your cloud needs.
+      </div>
+      <div class="span4">
+	Connect a new web service, to your website.
+	<a href="/contact" title="Contact">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+    <a id="saas-section"><a>    
+    <div class="row text2excel">
+      <div class="span12">
+	<div class="row">
+	  <div class="span1">
+	    <a href="#" class="thumbnail">
+	      <img data-src="holder.js/50x50" src="{{ STATIC_URL }}/apps/report/excel.jpg" alt="{{ appname_excel }}" class="img-rounded app-icon">
+	    </a>
+	  </div>
+	  <div class="span11">
+	    <div class="caption">
+	      <h3>{{ appname_excel }}</h3>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="row">
+	  <div class="span11">
+	    <p>Table is good and it's useful to export the table on your web page to spread sheet files, then your client can easily download them. Try this then get to use this when you want to convert your tables on your page to excel files! Here we provide a simple yet powerful service can transfer formatted text to spread sheet files. We try to avoid to call this 'Web service' and we try to make things easier without touching XML, SOAP, WSDL. Which means, without these hard-to-understand technology, we still can do things correctly.</p>
+	    <p><a href="/report/test" class="btn btn-success">Demo</a>
+	      {% if user.is_active %}
+	      <a href="/profile" class="btn btn-success">Go to application <i class="icon-white icon-arrow-right"></i></a>
+	    </p>
+	    {% else %}
+	    <a href="/apps/get/excel" id='start' class="btn btn-success">Get {{ appname_excel }}!</a>
+	    {% endif %}
+
+	  </div>
+	</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock%}
+
+{% block othercontent %}
+
+{% endblock%}

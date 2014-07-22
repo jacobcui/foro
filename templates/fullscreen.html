@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:mml="http://www.w3.org/1998/Math/MathML" itemtype="http://schema.org/Organization" itemscope="">
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="/resource/lib/jquery/themes/base/jquery.ui.all.css" />
+    
+    <link href="/resource/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" / -->
+    <!--link href='/resource/css/docs.css' rel='stylesheet' type='text/css' -->
+    <link href='/resource/css/fauna_one.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/resource/css/style.css" />
+
+    {% block stylesheets %}
+    {% for s in stylesheets %}
+    <link rel="stylesheet" href="/resource/css/{{ s }}" />
+    {% endfor %}
+    {% endblock %}
+
+  </head>
+
+  <body>
+
+    {% block content %}{% endblock %}
+
+  </body>
+
+  <script src="/resource/lib/jquery/jquery-1.10.2.min.js"></script>
+  <script src="/resource/lib/jquery/ui/minified/jquery-ui.min.js"></script>
+  <script src="/resource/lib/bootstrap/js/bootstrap.min.js"></script>
+  
+  <!--script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script-->
+
+  {% block javascripts %}
+  {% for j in javascripts %}
+  <script type="text/javascript" src="/resource/lib/{{ j }}"></script>
+  {% endfor %}
+  {% endblock %}
+
+  {% block js_resource %}
+  {% for j in js_resource %}
+  <script type="text/javascript" src="{{ j }}"></script>
+  {% endfor %}
+  {% endblock %}
+
+
+</html>
+
+

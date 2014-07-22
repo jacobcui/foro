@@ -1,0 +1,20 @@
+
+
+<html>
+<head>
+  <script type='text/javascript' src='{{ STATIC_URL}}lib/jquery/jquery-1.9.1.min.js'></script>
+</head>
+  <body>
+Application details: <br>
+{% if applicant%}
+
+{{ applicant.index }} <br>
+{{ applicant.first_name }}
+{% else %}
+
+Applicant doesn't exist!
+
+{% endif %}
+
+</body>
+</html>

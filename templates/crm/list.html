@@ -1,0 +1,37 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Applicants</title>
+  <link rel="stylesheet" href="{{ STATIC_URL}}lib/jquery/themes/base/jquery.ui.all.css" />
+  <script src="{{ STATIC_URL }}lib/jquery/jquery-1.9.1.min.js"></script>
+  <script src="{{ STATIC_URL }}lib/jquery/ui/jquery-ui.js"></script>
+  <link rel="stylesheet" href="{{ STATIC_URL}}css/style.css" />
+  <script>
+  $(function() {
+    $( "#applicant_tabs" ).tabs({
+      beforeLoad: function( event, ui ) {
+        ui.jqXHR.error(function() {
+          ui.panel.html(
+            "Couldn't load this tab. We'll try to fix this as soon as possible. " +
+            "If this wouldn't be a demo." );
+        });
+      }
+    });
+  });
+  </script>
+
+</htead>
+
+<div id="applicant_tabs">
+  <ul>
+    {% if applicant_list%}
+    {% for app in applicant_list %}
+    <li><a href="/crm/{{app.id}}">Applicant {{ app.index }} </a></li>
+    {% endfor %}
+    {% else %}
+    <p> No Applicants are available. </p>
+    {% endif %}
+  </ul>
+</div>
+
+</html>

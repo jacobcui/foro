@@ -1,0 +1,49 @@
+{% extends "basepage.html" %}
+{% block title %} Report : Test {% endblock %}
+
+{% block content%} 
+<div class="row">&nbsp;</div>
+<div class="row">&nbsp;</div>
+<div class="container center">
+
+  <div class="row shadow center">
+  <div class="span9">
+    <form method="post" action="/report/generate/">
+
+      <input type=hidden name=action value=generate></input>
+      <input type=hidden name=format value=xls></input>
+      <input type=hidden name=userid value={{ userid }}></input>
+
+      <h3>Simple Excel generater  </h3>
+      <div class="row">
+	<div class="span1">
+	  <label for="jsonselect"><input type=radio name=datatype id="jsonselect" checked tabindex="1">JSON</input> </label>
+	</div>
+	<div class="span3">
+	  <label for="textselect"><input type=radio name=datatype id="textselect" tabindex="2">Comma seperated text</input></label>
+	</div>
+      </div>
+      <div class="row">
+	<div class="span9">
+	  <textarea id="xlsdata" name="data" tabindex="3">{{ xlsdata }}</textarea>
+
+	  <textarea type=hidden id="textdata" name="textdata" style="display:none">{{ textdata }}</textarea>
+
+	  <textarea type=hidden id="jsondata" name="jsondata" style="display:none">{{ xlsdata }}</textarea>
+
+	</div>
+      </div>
+      <div class="row">
+	<div class="span9"> 
+	  <a href="#" id="create" class="btn btn-success"> Create </a>
+	</div>
+      </div>
+      <div id='filelinks' class="row">
+
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+<div class="push"></div>
+{% endblock%}

@@ -1,0 +1,49 @@
+{% extends "basepage.html" %}
+{% block title %} Get a plan {% endblock %}
+
+{% block content%} 
+
+<div class="row shadow">
+  <div class="span9">
+    <h4>Thinking of using the Text2Excel service?</h4>
+    <table class="table" style="width:80%">
+      <thead>
+        <tr class="centered">
+          <th class="type"><h4>Plan type</h4></th>
+	  <th class="type"><h4>Price</h4></th>
+	  <th class="type"><h4>Get it!</h4></th>
+	</tr>
+      </thead>
+
+      <tbody class="body">
+	{% for plan in plans %}
+	<tr>
+	  <td class="tier"> <h4>{{ plan.description }}</h4> {%if plan.description == 'Developer' %} Limit: 50 lines per document only. {% endif %}</td>
+	  <td class="price">AUD ${{ plan.price }} / {% if plan.length < 0 %} Lifetime {% else %}{{ plan.length }} month{{ plan.length|pluralize}}{% endif %} </td>
+	  <td class="price">
+	      {% if user.is_active %}
+	      <a href="#" class="btn btn-success btnselect" id={{ plan.planid }}>Select <i class="icon-white icon-chevron-right"></i></a>
+	      {% else %}
+	      <a href="/login" class="btn btn-success btnselect" > Sign In <i class="icon-white icon-chevron-right"></i></a>
+	      {% endif %}
+	  </td>
+	</tr>
+	{% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>&nbsp;</p>
+<div id="plan_details_container" class="row">
+  <div class="span9" id="plan_details">
+  </div>
+</div>
+
+{% endblock%}
+
+{% block othercontent %}
+{% endblock%}
+
+
+
+

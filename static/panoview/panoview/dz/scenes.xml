@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Scenes>
+  <Scene>
+    <SceneIndex>1</SceneIndex>
+    <Name>dz</Name>
+    <SceneDetail>
+      <Width></Width>
+      <Height></Height>
+      <FloorMap></FloorMap>
+      <Textures>
+	<Texture>
+	  <Position>Up</Position>
+	  <Image>dz_full/full_u/9/0_0.jpg</Image>
+	</Texture>
+	<Texture>
+	  <Position>Down</Position>
+	  <Image>dz_full/full_d/9/0_0.jpg</Image>
+	</Texture>
+	<Texture>
+	  <Position>Left</Position>
+	  <Image>dz_full/full_l/9/0_0.jpg</Image>
+	</Texture>
+	<Texture>
+	  <Position>Right</Position>
+	  <Image>dz_full/full_r/9/0_0.jpg</Image>
+	</Texture>
+	<Texture>
+	  <Position>Back</Position>
+	  <Image>dz_full/full_b/9/0_0.jpg</Image>
+	</Texture>
+	<Texture>
+	  <Position>Front</Position>
+	  <Image>dz_full/full_f/9/0_0.jpg</Image>
+	</Texture>
+      </Textures>
+    </SceneDetail>
+    <Image TileSize="512" Overlap="1" Format="jpg" ServerFormat="Default" xmnls="http://schemas.microsoft.com/deepzoom/2009">
+      <Size Width="384" Height="384" />
+    </Image>
+  </Scene>
+</Scenes>

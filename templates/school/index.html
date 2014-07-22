@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> List </title>
+
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="{{ STATIC_URL}}lib/jquery/themes/base/jquery.ui.all.css" />
+    <script src="{{ STATIC_URL }}lib/jquery/jquery-1.9.0.js"></script>
+    <script src="{{ STATIC_URL }}lib/jquery/ui/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="{{ STATIC_URL}}lib/bootstrap/css/bootstrap.min.css" /> 
+    <link rel="stylesheet" href="{{ STATIC_URL}}css/style.css" />
+    <script type="text/javascript" src="{{ STATIC_URL}}lib/bootstrap/js/bootstrap.min.js" />
+    <script type="text/javascript"
+	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSi_cIXVfK0VRvGpV6Loufr5EtxhaFxKM&sensor=false">
+    </script>    
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>   
+    
+
+    <script type="text/javascript" src="{{ STATIC_URL }}lib/school/index.js"></script>
+
+    <link rel="stylesheet" href="{{ STATIC_URL}}css/school/style.css" />
+
+    <script type="text/javascript">
+      function initialize() {
+      var pyrmont = new google.maps.LatLng(-33.8665433, 151.1956316);
+      var mapOptions = {
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      center: pyrmont,
+      zoom: 12
+      };
+      
+      map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+      infowindow = new google.maps.InfoWindow();
+      
+    schoolList = [    {'name':'Pyrmont', 'loc': new google.maps.LatLng(-33.8665433, 151.1956326)}    ];
+
+{% for s in schools %}
+    schoolList.push( {
+                      'name' : '{{ s.name }}',
+		      'loc'  : new google.maps.LatLng({{ s.lat  }}, {{ s.lng }} ),
+		      'address' : '{{ s.address }}', 
+		      'rank' : {{ s.rank }}
+		      });
+{% endfor %}
+
+    for( i = 0; i < schoolList.length; i++){
+	mapMarker(schoolList[i]);
+    }
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row-fluid">
+	<div class="span12">
+	  <div class="row-fluid">
+	    <div class="span10">
+	      <form class="form-search">
+		Location:<input type="text" class="input-large ">
+		  <button type="submit" class="btn">Search</button>
+		</div>
+	      <div class="span2"></div>
+	  </div>
+	</div>
+
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row-fluid no-space">
+	<div class="span2">
+	  <label>Refine search by:</label>
+	  <div class="row-fluid no-space">
+	    <div class="span12">
+	      School Type:<BR>
+	      <div class="btn-group" data-toggle="buttons-checkbox">
+		<button type="button" class="btn btn-primary">Private</button>
+		<button type="button" class="btn btn-primary">Public</button>
+		<button type="button" class="btn btn-primary">Catholic</button>
+	     </div> 
+	    </div>
+	  </div>
+	    
+	</div>
+	<div class="span2 no-space">
+	  <label>List:</label>
+	</div>
+	<div class="span8 no-space">
+	  <div id="map-canvas" class="container">
+	  </div>
+	</div>
+      </div>
+    </div>
+
+    <div class="container" id="output">
+      
+    </div>
+    
+    <div class="container" id="debug">
+      
+    </div>
+    
+
+  </body>
+</html>
